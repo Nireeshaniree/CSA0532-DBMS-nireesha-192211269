@@ -1,0 +1,59 @@
+mysql> use sse;
+Database changed
+mysql> select*from mentees;
++-----------+--------+------+-----------+------------+
+| regno     | name   | dept | address   | fathername |
++-----------+--------+------+-----------+------------+
+| 192211301 | Manasa | cse  | anantapur | sudhakar   |
+| 192211293 | Bhanu  | ece  | nellore   | ramu       |
+| 192211269 | Niree  | cse  | chittoor  | anand      |
++-----------+--------+------+-----------+------------+
+3 rows in set (0.00 sec)
+
+mysql> update mentees set Dept= "BME" where Regno=192211269
+    -> ;
+Query OK, 1 row affected (0.06 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update mentees set Dept= "BME" where Regno=192211269;
+Query OK, 0 rows affected (0.06 sec)
+Rows matched: 1  Changed: 0  Warnings: 0
+
+mysql> select* from mentees;
++-----------+--------+------+-----------+------------+
+| regno     | name   | dept | address   | fathername |
++-----------+--------+------+-----------+------------+
+| 192211301 | Manasa | cse  | anantapur | sudhakar   |
+| 192211293 | Bhanu  | ece  | nellore   | ramu       |
+| 192211269 | Niree  | BME  | chittoor  | anand      |
++-----------+--------+------+-----------+------------+
+3 rows in set (0.01 sec)
+
+mysql> update mentees set Address="Chennai"where Dept="CSE";
+Query OK, 1 row affected (0.06 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select* from mentees;
++-----------+--------+------+----------+------------+
+| regno     | name   | dept | address  | fathername |
++-----------+--------+------+----------+------------+
+| 192211301 | Manasa | cse  | Chennai  | sudhakar   |
+| 192211293 | Bhanu  | ece  | nellore  | ramu       |
+| 192211269 | Niree  | BME  | chittoor | anand      |
++-----------+--------+------+----------+------------+
+3 rows in set (0.00 sec)
+
+mysql> delete from mentees where Fathername= "Velu";
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select* from mentees;
++-----------+--------+------+----------+------------+
+| regno     | name   | dept | address  | fathername |
++-----------+--------+------+----------+------------+
+| 192211301 | Manasa | cse  | Chennai  | sudhakar   |
+| 192211293 | Bhanu  | ece  | nellore  | ramu       |
+| 192211269 | Niree  | BME  | chittoor | anand      |
++-----------+--------+------+----------+------------+
+3 rows in set (0.00 sec)
+
+mysql>
