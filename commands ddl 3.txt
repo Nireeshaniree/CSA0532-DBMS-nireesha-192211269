@@ -1,0 +1,59 @@
+mysql> use sse;
+Database changed
+mysql> show tables;
++---------------+
+| Tables_in_sse |
++---------------+
+| empdept       |
+| employee      |
+| mentees       |
+| student       |
+| studepartment |
++---------------+
+5 rows in set (0.00 sec)
+
+mysql> insert into mentees values(192211301,"Manasa","cse","anantapur","sudhakar");
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into mentees values(192211293,"Bhanu","ece","nellore","ramu"),(192211269,"Niree","cse","chittoor","anand");
+Query OK, 2 rows affected (0.05 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from mentees;
++-----------+--------+------+-----------+------------+
+| regno     | name   | dept | address   | fathername |
++-----------+--------+------+-----------+------------+
+| 192211301 | Manasa | cse  | anantapur | sudhakar   |
+| 192211293 | Bhanu  | ece  | nellore   | ramu       |
+| 192211269 | Niree  | cse  | chittoor  | anand      |
++-----------+--------+------+-----------+------------+
+3 rows in set (0.00 sec)
+
+mysql> select name from mentees;
++--------+
+| name   |
++--------+
+| Manasa |
+| Bhanu  |
+| Niree  |
++--------+
+3 rows in set (0.00 sec)
+
+mysql> select * from mentees where name="Niree";
++-----------+-------+------+----------+------------+
+| regno     | name  | dept | address  | fathername |
++-----------+-------+------+----------+------------+
+| 192211269 | Niree | cse  | chittoor | anand      |
++-----------+-------+------+----------+------------+
+1 row in set (0.06 sec)
+
+mysql>
+
+
+
+
+
+
+
+
+
