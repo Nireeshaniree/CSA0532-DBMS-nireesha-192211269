@@ -1,0 +1,95 @@
+
+mysql> use sse;
+Database changed
+mysql> show tables;
++---------------+
+| Tables_in_sse |
++---------------+
+| empdept       |
+| employee      |
+| mentees       |
+| student       |
+| studepartment |
++---------------+
+5 rows in set (0.00 sec)
+
+mysql> alter table mentees add subject varchar(20);
+Query OK, 3 rows affected (0.08 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> update mentees set subject= "PDSD" where Dept="ECE";
+Query OK, 1 row affected (0.06 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update mentees set subject="DBMS" where Dept="CSE";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update mentees set subject="BIOEVS" where Dept="ECE";
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select*from mentees;
++-----------+--------+------+----------+------------+-------+---------+
+| regno     | name   | dept | address  | fathername | marks | subject |
++-----------+--------+------+----------+------------+-------+---------+
+| 192211301 | Manasa | cse  | Chennai  | sudhakar   |    91 | DBMS    |
+| 192211293 | Bhanu  | ece  | nellore  | ramu       |    91 | BIOEVS  |
+| 192211269 | Niree  | BME  | chittoor | anand      |    91 | NULL    |
++-----------+--------+------+----------+------------+-------+---------+
+3 rows in set (0.00 sec)
+
+mysql> select*from mentees where Marks between 91 and 92;
++-----------+--------+------+----------+------------+-------+---------+
+| regno     | name   | dept | address  | fathername | marks | subject |
++-----------+--------+------+----------+------------+-------+---------+
+| 192211301 | Manasa | cse  | Chennai  | sudhakar   |    91 | DBMS    |
+| 192211293 | Bhanu  | ece  | nellore  | ramu       |    91 | BIOEVS  |
+| 192211269 | Niree  | BME  | chittoor | anand      |    91 | NULL    |
++-----------+--------+------+----------+------------+-------+---------+
+3 rows in set (0.06 sec)
+
+
+mysql> select*from mentees where Marks NOT BETWEEN 95 and 99;
++-----------+--------+------+----------+------------+-------+---------+
+| regno     | name   | dept | address  | fathername | marks | subject |
++-----------+--------+------+----------+------------+-------+---------+
+| 192211301 | Manasa | cse  | Chennai  | sudhakar   |    91 | DBMS    |
+| 192211293 | Bhanu  | ece  | nellore  | ramu       |    91 | BIOEVS  |
+| 192211269 | Niree  | BME  | chittoor | anand      |    91 | NULL    |
++-----------+--------+------+----------+------------+-------+---------+
+3 rows in set (0.01 sec)
+
+mysql> select sum(Marks) from mentees where Dept="ECE";
++------------+
+| sum(Marks) |
++------------+
+|         91 |
++------------+
+1 row in set (0.06 sec)
+
+mysql> select avg(Marks) as Average from mentees;
++---------+
+| Average |
++---------+
+| 91.0000 |
++---------+
+1 row in set (0.00 sec)
+
+mysql> select min(Marks) as minimum from mentees;
++---------+
+| minimum |
++---------+
+|      91 |
++---------+
+1 row in set (0.05 sec)
+
+mysql> select max(Marks) as maximum from mentees;
++---------+
+| maximum |
++---------+
+|      91 |
++---------+
+1 row in set (0.00 sec)
+
+mysql>
