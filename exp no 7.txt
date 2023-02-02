@@ -1,0 +1,64 @@
+
+mysql>  use sse;
+Database changed
+mysql> show tables;
++---------------+
+| Tables_in_sse |
++---------------+
+| empdept       |
+| employee      |
+| mentees       |
+| student       |
+| studepartment |
++---------------+
+5 rows in set (0.05 sec)
+
+mysql> select*from mentees;
++-----------+--------+------+----------+------------+-------+---------+
+| regno     | name   | dept | address  | fathername | marks | subject |
++-----------+--------+------+----------+------------+-------+---------+
+| 192211301 | Manasa | cse  | Chennai  | sudhakar   |    91 | DBMS    |
+| 192211293 | Bhanu  | ece  | nellore  | ramu       |    91 | BIOEVS  |
+| 192211269 | Niree  | BME  | chittoor | anand      |    91 | NULL    |
++-----------+--------+------+----------+------------+-------+---------+
+3 rows in set (0.00 sec)
+
+mysql> select*from mentees order by Name;
++-----------+--------+------+----------+------------+-------+---------+
+| regno     | name   | dept | address  | fathername | marks | subject |
++-----------+--------+------+----------+------------+-------+---------+
+| 192211293 | Bhanu  | ece  | nellore  | ramu       |    91 | BIOEVS  |
+| 192211301 | Manasa | cse  | Chennai  | sudhakar   |    91 | DBMS    |
+| 192211269 | Niree  | BME  | chittoor | anand      |    91 | NULL    |
++-----------+--------+------+----------+------------+-------+---------+
+3 rows in set (0.06 sec)
+
+mysql> select*from mentees group by Marks;
++-----------+--------+------+---------+------------+-------+---------+
+| regno     | name   | dept | address | fathername | marks | subject |
++-----------+--------+------+---------+------------+-------+---------+
+| 192211301 | Manasa | cse  | Chennai | sudhakar   |    91 | DBMS    |
++-----------+--------+------+---------+------------+-------+---------+
+1 row in set (0.06 sec)
+
+mysql> select*from mentees group by Dept;
++-----------+--------+------+----------+------------+-------+---------+
+| regno     | name   | dept | address  | fathername | marks | subject |
++-----------+--------+------+----------+------------+-------+---------+
+| 192211269 | Niree  | BME  | chittoor | anand      |    91 | NULL    |
+| 192211301 | Manasa | cse  | Chennai  | sudhakar   |    91 | DBMS    |
+| 192211293 | Bhanu  | ece  | nellore  | ramu       |    91 | BIOEVS  |
++-----------+--------+------+----------+------------+-------+---------+
+3 rows in set (0.00 sec)
+
+mysql> select*from mentees having Marks>90;
++-----------+--------+------+----------+------------+-------+---------+
+| regno     | name   | dept | address  | fathername | marks | subject |
++-----------+--------+------+----------+------------+-------+---------+
+| 192211301 | Manasa | cse  | Chennai  | sudhakar   |    91 | DBMS    |
+| 192211293 | Bhanu  | ece  | nellore  | ramu       |    91 | BIOEVS  |
+| 192211269 | Niree  | BME  | chittoor | anand      |    91 | NULL    |
++-----------+--------+------+----------+------------+-------+---------+
+3 rows in set (0.00 sec)
+
+mysql>
